@@ -3,7 +3,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 
-// Usa el mismo nombre de variable que dejaste al final en tu .env
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
@@ -16,7 +16,7 @@ export default function BotonLogout() {
     const { error } = await supabase.auth.signOut();
     
     if (!error) {
-      // Redirige al login y refresca la ruta para limpiar estados
+
       router.push('/login');
       router.refresh();
     }
