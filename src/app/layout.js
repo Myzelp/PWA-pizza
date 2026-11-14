@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import RegistrarSW from "./componentes/RegistrarSW";
+import BotonLogout from "./componentes/BotonLogout";
+import MenuAuth from "./componentes/MenuAuth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +32,7 @@ export default function RootLayout({ children }) {
           <Link href='/'>INICIO </Link>
           <Link href='/producto'>PRODUCTOS </Link>
           <Link href='/contacto'>CONTACTANOS </Link>
-          <Link href='/login'>LOGIN </Link>
+          <MenuAuth />
         </header> 
         <RegistrarSW />
         {children}</body>
