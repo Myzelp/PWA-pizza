@@ -1,5 +1,5 @@
-const CACHE_NAME = 'v1-cache-app';
-const IMAGE_CACHE_NAME = 'imagenes-supabase-v1';
+const CACHE_NAME = 'v2-cache-app';
+const IMAGE_CACHE_NAME = 'imagenes-supabase-v2';
  
 // Recursos estáticos que se guardarán en caché en la instalación
 const STATIC_ASSETS = ['/']
@@ -47,7 +47,7 @@ self.addEventListener('fetch', (event) => {
     url.pathname.startsWith('/_next/image')
   ) {
     event.respondWith(
-      caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
+      caches.match(event.request).then((cachedResponse) => {
         if (cachedResponse) {
         console.log('[SW] Imagen entregada desde caché:', event.request.url);
           return cachedResponse;
