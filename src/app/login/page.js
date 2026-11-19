@@ -10,6 +10,7 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 );
 
+
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,9 +38,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
-      <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md border">
-        <h2 className="mb-6 text-center text-2xl font-bold text-gray-800">
+    <div className="flex flex-1 items-center justify-center px-4 py-14">
+      <div className="w-full max-w-md p-8 shadow-md border bg-black/75 backdrop-blur-md border-white/20 rounded-2xl">
+        <h2 className="mb-6 text-center font-bold text-white text-3xl">
           Iniciar Sesión
         </h2>
 
@@ -51,7 +52,7 @@ export default function LoginPage() {
 
         <form onSubmit={manejarLogin} className="flex flex-col gap-4">
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
+            <label className="mb-1 block text-white text-lg font-bold">
               Correo Electrónico
             </label>
             <input
@@ -59,13 +60,13 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded border px-3 py-2 text-gray-900 focus:border-blue-500 focus:outline-none"
+              className="w-full rounded border px-3 py-2 text-white bg-black/40 border-white/30 placeholder:text-white/50 focus:border-red-500"
               placeholder="tu@correo.com"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
+            <label className="mb-1 block text-white text-lg font-bold">
               Contraseña
             </label>
             <input
@@ -73,7 +74,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full rounded border px-3 py-2 text-gray-900 focus:border-blue-500 focus:outline-none"
+              className="w-full rounded border px-3 py-2 text-white bg-black/40 border-white/30 placeholder:text-white/50 focus:border-red-500"
               placeholder="••••••••"
             />
           </div>
@@ -81,7 +82,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={cargando}
-            className="mt-4 w-full rounded bg-blue-600 py-2 font-semibold text-white transition hover:bg-blue-700 disabled:bg-blue-400"
+            className="w-1/2 rounded-lg bg-red-800 py-2 hover:scale-95 transition-transform block mb-2 text-lg font-bold tracking-wide drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] mx-auto mt-2 text-white"
           >
             {cargando ? 'Iniciando...' : 'Entrar'}
           </button>
